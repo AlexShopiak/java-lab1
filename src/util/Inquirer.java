@@ -7,13 +7,12 @@ public class Inquirer {
         Scanner scanner = new Scanner(System.in);
         short[] result = new short[4];
 
-        int abBot = -10;
-        int abTop = 10;
+        int abBot = -32768;
+        int abTop = 32767;
 
-        int nmTop = 20;
+        int nmTop = 32767;
 
-        //ask for a
-        do {
+        do {  //ask for a
             System.out.print("Enter a from " + abBot + " to " + abTop + ": ");
             int a = scanner.nextInt();
 
@@ -23,8 +22,7 @@ public class Inquirer {
             }
         } while (true);
 
-        //ask for b
-        do {
+        do {  //ask for b
             System.out.print("Enter b from " + abBot + " to " + abTop + ": ");
             int b = scanner.nextInt();
 
@@ -34,8 +32,7 @@ public class Inquirer {
             }
         } while (true); 
         
-        //ask for n
-        do {
+        do {  //ask for n
             int a = result[0];
             System.out.print("Enter n from " + a + " to " + nmTop + ": ");
             int n = scanner.nextInt();
@@ -46,9 +43,7 @@ public class Inquirer {
             }
         } while (true);    
         
-
-        //ask for m
-        do {
+        do {  //ask for m
             int b = result[1];
             System.out.print("Enter m from " + b + " to " + nmTop + ": ");
             int m = scanner.nextInt();
