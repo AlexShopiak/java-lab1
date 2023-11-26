@@ -7,18 +7,17 @@ public class Inquirer {
         Scanner scanner = new Scanner(System.in);
         short[] result = new short[4];
 
-        int aBot = 0;
-        int bBot = 1;
-        int aExc = 2;
+        int abBot = -10;
         int abTop = 10;
-        int nmTop = 100;
+
+        int nmTop = 20;
 
         //ask for a
         do {
-            System.out.print("Enter a from " + aBot + " to " + abTop + " except " + aExc + ": ");
+            System.out.print("Enter a from " + abBot + " to " + abTop + ": ");
             int a = scanner.nextInt();
 
-            if (a >= aBot && a <= abTop && a != aExc ) {
+            if (a >= abBot && a <= abTop) {
                 result[0] = (short) a;
                 break;
             }
@@ -26,10 +25,10 @@ public class Inquirer {
 
         //ask for b
         do {
-            System.out.print("Enter b from " + bBot + " to " + abTop + ": ");
+            System.out.print("Enter b from " + abBot + " to " + abTop + ": ");
             int b = scanner.nextInt();
 
-            if (b >= bBot && b <= abTop && b != 2 ) {
+            if (b >= abBot && b <= abTop) {
                 result[1] = (short) b;
                 break;
             }
