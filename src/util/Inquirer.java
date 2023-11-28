@@ -12,49 +12,24 @@ public class Inquirer {
 
         int nmTop = 32767;
 
-        do {  //ask for a
-            System.out.print("Enter a from " + abBot + " to " + abTop + ": ");
-            int a = scanner.nextInt();
+        result[0] = (short) ask(scanner, "a", abBot, abTop);
+        result[1] = (short) ask(scanner, "b", abBot, abTop);
 
-            if (a >= abBot && a <= abTop) {
-                result[0] = (short) a;
-                break;
-            }
-        } while (true);
-
-        do {  //ask for b
-            System.out.print("Enter b from " + abBot + " to " + abTop + ": ");
-            int b = scanner.nextInt();
-
-            if (b >= abBot && b <= abTop) {
-                result[1] = (short) b;
-                break;
-            }
-        } while (true); 
-        
-        do {  //ask for n
-            int a = result[0];
-            System.out.print("Enter n from " + a + " to " + nmTop + ": ");
-            int n = scanner.nextInt();
-
-            if (n >= a && n <= nmTop) {
-                result[2] = (short) n;
-                break;
-            }
-        } while (true);    
-        
-        do {  //ask for m
-            int b = result[1];
-            System.out.print("Enter m from " + b + " to " + nmTop + ": ");
-            int m = scanner.nextInt();
-
-            if (m >= b && m <= nmTop) {
-                result[3] = (short) m;
-                break;
-            }
-        } while (true);                    
+        result[2] = (short) ask(scanner, "n", result[0], nmTop);   
+        result[3] = (short) ask(scanner, "m", result[1], nmTop);                     
 
         scanner.close();
         return result;
+    }
+
+    private static int ask(Scanner scanner, String name, int bottom, int top) {
+        do {
+            System.out.print("Enter " + name + " from " + bottom + " to " + top + ": ");
+            int data = scanner.nextInt();
+
+            if (data >= bottom && data <= top) {
+                return data;
+            }
+        } while (true);
     }
 }
